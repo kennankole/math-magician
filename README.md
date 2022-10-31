@@ -28,7 +28,7 @@ npm start
 
 ## Authors
 
-👤 **Author1**
+👤 **Kennankole**
 
 - GitHub: [@githubhandle](https://github.com/kennankole)
 - Twitter: [@twitterhandle](https://twitter.com/obwombe_kennedy)

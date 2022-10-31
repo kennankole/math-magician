@@ -1,6 +1,6 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Leaderboard score board app
+# Math Magician
 
 > Description the project.
 - This project demonstrates using how to use React library to create a simple calculator

@@ -1,16 +1,26 @@
-import React from "react";
-class Calculator extends React.Component {
-	render() {
-		return (
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="Calculator.css">
+    <title>Document</title>
+</head>
+
+<body>
+	<section class="calculator-section">
+		<div class="calculator-container">
 			<table>
 				<tr>
-					<td><input type="text" value="0" class="input-field" /></td>
+					<td><input type="text" value="0" class="input-field"></td>
 				</tr>
 				<tr>
 					<td>
-						<input type="text" name="" id="" value="AC" />
-						<input type="text" name="" id="" value="+/-" />
-						<input type="text" name="" id="" value="%" />
+						<input type="text" name="" id="" value="AC">
+						<input type="text" name="" id="" value="+/-">
+						<input type="text" name="" id="" value="&percnt;">
 						<input type="text" name="" id="" value="&#247;" class="red" />
 					</td>
 				</tr>
@@ -46,8 +56,8 @@ class Calculator extends React.Component {
 					</td>
 				</tr>
 			</table>
-		);
-	}
-}
+		</div>
+	</section>
+</body>
 
-export default Calculator;
+</html>

@@ -1,7 +1,8 @@
 * {
   padding: 0;
   margin: 0;
-  box-sizing: border-box;
+
+  /* box-sizing: border-box; */
 }
 
 .calculatorSection {
@@ -12,28 +13,29 @@
 }
 
 table {
-  border: 1px solid grey;
   margin: 0;
-  padding: 0;
+  width: 75vw;
+  padding: 7%;
 }
 
-input {
+td {
   padding: 20px;
   border: 1px solid rgb(58 56 56);
-  font-size: 20px;
+  font-size: 25px;
   font-weight: 500;
-}
-
-.inputField {
-  width: 100%;
-  text-align: end;
-  background-color: grey;
-}
-
-.downInput > input:nth-child(1) {
-  width: 50%;
+  text-align: center;
 }
 
 .red {
   background-color: rgb(255 85 0);
+}
+
+.results {
+  background-color: grey;
+  padding: 20px;
+  text-align: end;
+}
+
+.items {
+  min-width: 100%;
 }

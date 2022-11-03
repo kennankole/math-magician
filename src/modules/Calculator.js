@@ -1,61 +1,69 @@
-/* eslint-disable react/prefer-stateless-function */
-import React from 'react';
-import operate from '../logic/operate';
+import React, { useState } from 'react';
 import calculate from '../logic/calculate';
 
-class Calculator extends React.Component {
-  render() {
-    return (
-      <section className="calculatorSection">
-        <div className="calculatorContainer">
-          <table>
-            <tr>
-              <td><input type="text" value="0" className="inputField" /></td>
-            </tr>
-            <tr>
-              <td>
-                <input type="text" name="" id="" value="AC" />
-                <input type="text" name="" id="" value="+/-" />
-                <input type="text" name="" id="" value="%" />
-                <input type="text" name="" id="" value="&#247;" className="red" />
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <input type="text" name="" id="" value="7" />
-                <input type="text" name="" id="" value="9" />
-                <input type="text" name="" id="" value="8" />
-                <input type="text" name="" id="" value="x" className="red" />
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <input type="text" name="" id="" value="4" />
-                <input type="text" name="" id="" value="5" />
-                <input type="text" name="" id="" value="6" />
-                <input type="text" name="" id="" value="-" className="red" />
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <input type="text" name="" id="" value="1" />
-                <input type="text" name="" id="" value="2" />
-                <input type="text" name="" id="" value="3" />
-                <input type="text" name="" id="" value="+" className="red" />
-              </td>
-            </tr>
-            <tr>
-              <td className="downInput">
-                <input type="text" name="" id="" value="0" />
-                <input type="text" name="" id="" value="." />
-                <input type="text" name="" id="" value="=" className="red" />
-              </td>
-            </tr>
-          </table>
-        </div>
-      </section>
-    );
-  }
+function Calculator() {
+  const [operation, setOperation] = useState(null);
+  const [next, setNext] = useState(null);
+  const [total, seTotal] = useState(0);
+
+  const cacluatorDataObjects = { operation, next, total };
+
+  const handleChange = (event) => {
+    const buttonName = event.target.innerHTML;
+    const results = calculate(cacluatorDataObjects, buttonName);
+    const { operation, next, total } = results;
+
+    setOperation(operation);
+    setNext(next);
+    seTotal(total);
+  };
+  return (
+    <section className="calculatorSection">
+      <table>
+        <thead>
+          <tr>
+            <td colSpan="4" role="presentation" onClick={handleChange} defaultValue="0" className="results">
+              {total}
+              {operation}
+              {next}
+            </td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td role="presentation" onClick={handleChange}>AC</td>
+            <td role="presentation" onClick={handleChange}>+/-</td>
+            <td role="presentation" onClick={handleChange}>%</td>
+            <td role="presentation" className="red" onClick={handleChange}>÷</td>
+          </tr>
+          <tr>
+            <td role="presentation" onClick={handleChange}>7</td>
+            <td role="presentation" onClick={handleChange}>8</td>
+            <td role="presentation" onClick={handleChange}>9</td>
+            <td role="presentation" className="red" onClick={handleChange}>x</td>
+          </tr>
+          <tr>
+            <td role="presentation" onClick={handleChange}>4</td>
+            <td role="presentation" onClick={handleChange}>5</td>
+            <td role="presentation" onClick={handleChange}>6</td>
+            <td role="presentation" className="red" onClick={handleChange}>-</td>
+          </tr>
+          <tr>
+            <td role="presentation" onClick={handleChange}>1</td>
+            <td role="presentation" onClick={handleChange}>2</td>
+            <td role="presentation" onClick={handleChange}>3</td>
+            <td role="presentation" className="red" onClick={handleChange}>+</td>
+          </tr>
+          <tr>
+            <td colSpan="2" role="presentation" onClick={handleChange}>0</td>
+            <td role="presentation" onClick={handleChange}>.</td>
+            <td role="presentation" className="red" onClick={handleChange}>=</td>
+          </tr>
+        </tbody>
+
+      </table>
+    </section>
+  );
 }
 
 export default Calculator;

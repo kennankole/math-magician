@@ -1,56 +1,70 @@
-/* eslint-disable react/prefer-stateless-function */
 import React from 'react';
+import calculate from '../logic/calculate';
 
 class Calculator extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      total: 0,
+      next: null,
+      operation: null,
+    };
+
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(event) {
+    const buttonName = event.target.innerHTML;
+    const results = calculate(this.state, buttonName);
+    this.setState(results);
+  }
+
   render() {
+    const { total, operation, next } = this.state;
     return (
       <section className="calculatorSection">
-        <div className="calculatorContainer">
-          <table>
+        <table>
+          <thead>
             <tr>
-              <td><input type="text" value="0" className="inputField" /></td>
-            </tr>
-            <tr>
-              <td>
-                <input type="text" name="" id="" value="AC" />
-                <input type="text" name="" id="" value="+/-" />
-                <input type="text" name="" id="" value="%" />
-                <input type="text" name="" id="" value="&#247;" className="red" />
+              <td colSpan="4" role="presentation" onClick={this.handleChange} defaultValue="0" className="results">
+                {total}
+                {operation}
+                {next}
               </td>
             </tr>
+          </thead>
+          <tbody>
             <tr>
-              <td>
-                <input type="text" name="" id="" value="7" />
-                <input type="text" name="" id="" value="9" />
-                <input type="text" name="" id="" value="8" />
-                <input type="text" name="" id="" value="x" className="red" />
-              </td>
+              <td role="presentation" onClick={this.handleChange}>AC</td>
+              <td role="presentation" onClick={this.handleChange}>+/-</td>
+              <td role="presentation" onClick={this.handleChange}>%</td>
+              <td role="presentation" className="red" onClick={this.handleChange}>÷</td>
             </tr>
             <tr>
-              <td>
-                <input type="text" name="" id="" value="4" />
-                <input type="text" name="" id="" value="5" />
-                <input type="text" name="" id="" value="6" />
-                <input type="text" name="" id="" value="-" className="red" />
-              </td>
+              <td role="presentation" onClick={this.handleChange}>7</td>
+              <td role="presentation" onClick={this.handleChange}>8</td>
+              <td role="presentation" onClick={this.handleChange}>9</td>
+              <td role="presentation" className="red" onClick={this.handleChange}>x</td>
             </tr>
             <tr>
-              <td>
-                <input type="text" name="" id="" value="1" />
-                <input type="text" name="" id="" value="2" />
-                <input type="text" name="" id="" value="3" />
-                <input type="text" name="" id="" value="+" className="red" />
-              </td>
+              <td role="presentation" onClick={this.handleChange}>4</td>
+              <td role="presentation" onClick={this.handleChange}>5</td>
+              <td role="presentation" onClick={this.handleChange}>6</td>
+              <td role="presentation" className="red" onClick={this.handleChange}>-</td>
             </tr>
             <tr>
-              <td className="downInput">
-                <input type="text" name="" id="" value="0" />
-                <input type="text" name="" id="" value="." />
-                <input type="text" name="" id="" value="=" className="red" />
-              </td>
+              <td role="presentation" onClick={this.handleChange}>1</td>
+              <td role="presentation" onClick={this.handleChange}>2</td>
+              <td role="presentation" onClick={this.handleChange}>3</td>
+              <td role="presentation" className="red" onClick={this.handleChange}>+</td>
             </tr>
-          </table>
-        </div>
+            <tr>
+              <td colSpan="2" role="presentation" onClick={this.handleChange}>0</td>
+              <td role="presentation" onClick={this.handleChange}>.</td>
+              <td role="presentation" className="red" onClick={this.handleChange}>=</td>
+            </tr>
+          </tbody>
+        </table>
       </section>
     );
   }

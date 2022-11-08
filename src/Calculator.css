@@ -9,7 +9,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 10% 0;
 }
 
 table {
@@ -38,4 +37,61 @@ td {
 
 .items {
   min-width: 100%;
+}
+
+/*
+#########################################################
+#+++++++++++++++++++NAVIGATION MENU+++++++++++++++++++++#
+#########################################################
+*/
+.nav-bar {
+  flex-direction: column;
+}
+
+.nav-bar-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2% 5%;
+}
+
+.nav-title {
+  flex: 1;
+  font-size: 32px;
+  width: 50%;
+  padding: 10px;
+}
+
+.nav-ul {
+  padding: 10px;
+  font-size: 20px;
+  color: rgb(75, 153, 185);
+  font-weight: 500;
+}
+
+/*
+#########################################################
+#+++++++++++++++++++++HOME SECTION++++++++++++++++++++++#
+#########################################################
+*/
+main,
+.quote {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2% 10%;
+}
+
+.text-description {
+  line-height: 30px;
+  font-size: 18px;
+}
+
+.author {
+  font-size: 25px;
+}
+
+.home-text {
+  padding: 5%;
+  font-size: 25px;
 }
